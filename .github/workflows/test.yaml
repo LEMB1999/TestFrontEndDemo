@@ -37,7 +37,7 @@ jobs:
         run: npm i
       - name: Check Coverage Code
         run: |
-          $coverage=$(npm run test -- --coverage --coverageReporters=text | grep 'All files' | awk '{print $4}')
+          coverage=$(npm run test -- --coverage --coverageReporters=text | grep 'All files' | awk '{print $4}')
           echo "The coverage is : $coverage"
           if [ "$COVERAGE" -lt 85 ]; then
             echo "Code coverage is below 85%"
