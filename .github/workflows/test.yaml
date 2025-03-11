@@ -39,7 +39,7 @@ jobs:
         run: |
           coverage=$(npm run test -- --coverage --coverageReporters=text | grep 'All files' | awk '{print $4}')
           echo "The coverage is : $coverage"
-          if [ "$COVERAGE" -lt 85 ]; then
+          if [ $((coverage)) -lt 85 ]; then
             echo "Code coverage is below 85%"
             exit 1
           fi   
