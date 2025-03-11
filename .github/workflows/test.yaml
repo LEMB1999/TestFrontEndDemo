@@ -17,18 +17,25 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
       - run: npm i
       - name: Test Components
         run: npm run test
 
   Check-Coverage:
     runs-on: ubuntu-latest
+    needs: Check-Tests
     steps:
       - name: Copy Files to WorkSpace
         uses: actions/checkout@v4
+      - name: Install Modules
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
       - name: Check Coverage Code
         run: |
-          $coverage=$(npx jest --coverage --coverageReporters=text | grep 'All files' | awk '{print $4}')
+          $coverage=$(npm run test -- --coverage --coverageReporters=text | grep 'All files' | awk '{print $4}')
           echo "The coverage is : $coverage"
           if [ "$COVERAGE" -lt 85 ]; then
             echo "Code coverage is below 85%"
