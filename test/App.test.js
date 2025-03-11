@@ -26,7 +26,7 @@ test('the button should have the class active', async () => {
     render(<App />)
   })
   const button = screen.getByTestId('btn-save-status')
-  expect(button).toHaveClass('active-test')
+  expect(button).toHaveClass('active')
 })
 
 test('the button delete should be disabled ', async () => {
