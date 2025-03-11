@@ -1,0 +1,21 @@
+*,*::before,*::after{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.container-todos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;    
+    gap: 5px;
+    margin: 10px auto;    
+}
+
+.todo{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    padding: 5px;
+}
+
+.container {
+    padding: 10px;
+}
