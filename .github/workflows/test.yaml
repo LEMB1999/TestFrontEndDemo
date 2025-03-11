@@ -42,3 +42,4 @@ jobs:
           if [ "$COVERAGE" -lt 85 ]; then
             echo "Code coverage is below 85%"
             exit 1
+          fi   
