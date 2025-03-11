@@ -28,11 +28,13 @@ jobs:
     steps:
       - name: Copy Files to WorkSpace
         uses: actions/checkout@v4
-      - name: Install Modules
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
+      - name: Install Modules
+        run: npm i
       - name: Check Coverage Code
         run: |
           $coverage=$(npm run test -- --coverage --coverageReporters=text | grep 'All files' | awk '{print $4}')
